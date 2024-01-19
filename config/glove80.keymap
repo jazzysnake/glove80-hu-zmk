@@ -21,7 +21,7 @@
 #include <dt-bindings/zmk/rgb.h>
 // test include hu keymap
 
-#include <hu_keymap.h>
+#include "keys_hu.h"
 
 /* Automatically generated layer name #define */
 #define LAYER_Base 0
