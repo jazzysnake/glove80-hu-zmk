@@ -23,10 +23,10 @@
 
 #include "keys_hu.h"
 
-/* Automatically generated layer name #define */
 #define LAYER_Base 0
 #define LAYER_Lower 1
-#define LAYER_Magic 2
+#define LAYER_HUN 2
+#define LAYER_Magic 3
 
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
 #ifndef LAYER_Lower
@@ -269,46 +269,6 @@
     
 };
 / {
-    combos {
-        compatible = "zmk,combos";
-        combo_hu_e_acute {
-            timeout-ms = <50>;
-            key-positions = <25 46>;
-            bindings = <&kp HU_E_ACUTE>;
-        };
-        combo_hu_u_acute {
-            timeout-ms = <50>;
-            key-positions = <29 46>;
-            bindings = <&kp HU_U_ACUTE>;
-        };
-        combo_hu_u_umlaut {
-            timeout-ms = <50>;
-            key-positions = <57 46>;
-            bindings = <&kp HU_U_UMLAUT>;
-        };
-        combo_hu_i_acute {
-            timeout-ms = <50>;
-            key-positions = <30 46>;
-            bindings = <&kp HU_I_ACUTE>;
-        };
-        combo_hu_o_acute {
-            timeout-ms = <50>;
-            key-positions = <31 46>;
-            bindings = <&kp HU_O_ACUTE>;
-        };
-        combo_hu_o_umlaut {
-            timeout-ms = <50>;
-            key-positions = <57 46>;
-            bindings = <&kp HU_O_UMLAUT>;
-        };
-        combo_hu_a_acute {
-            timeout-ms = <50>;
-            key-positions = <35 46>;
-            bindings = <&kp HU_A_ACUTE>;
-        };
-    };
-};
-/ {
     keymap {
         compatible = "zmk,keymap";
 
@@ -319,7 +279,7 @@
                &kp HU_N0    &kp HU_N1   &kp HU_N2    &kp HU_N3     &kp HU_N4  &kp HU_N5                                                                  &kp HU_N6  &kp HU_N7     &kp HU_N8    &kp HU_N9    &kp HU_RPAR   &kp PSCRN
               &kp TAB     &kp HU_Q    &kp HU_W     &kp HU_E      &kp HU_R   &kp HU_T                                                                   &kp HU_Z   &kp HU_U      &kp HU_I     &kp HU_O     &kp HU_P   &kp HU_BSLH
               &kp ESC     &kp HU_A    &kp HU_S     &kp HU_D      &kp HU_F   &kp HU_G                                                                   &kp HU_H   &kp HU_J      &kp HU_K     &kp HU_L  &kp HU_SEMI    &kp HU_SQT
-            &kp HU_GRAVE     &kp HU_Y    &kp HU_X     &kp HU_C      &kp HU_V   &kp HU_B  &kp LSHFT  &kp LCTRL    &lower  &kp DEL  &kp RCTRL  &kp RSHFT   &kp HU_N   &kp HU_M  &kp HU_COMMA   &kp HU_DOT  &kp HU_MINUS  &kp HU_FSLH
+            &lt LAYER_HUN HU_GRAVE     &kp HU_Y    &kp HU_X     &kp HU_C      &kp HU_V   &kp HU_B  &kp LSHFT  &kp LCTRL    &lower  &kp DEL  &kp RCTRL  &kp RSHFT   &kp HU_N   &kp HU_M  &kp HU_COMMA   &kp HU_DOT  &kp HU_MINUS  &kp HU_FSLH
  &magic LAYER_Magic 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT           &kp BSPC    &kp LGUI  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  &kp HU_LBKT  &kp HU_RBKT  &kp HU_EQUAL
             >;
         };
@@ -334,6 +294,18 @@
  &magic LAYER_Magic 0      &kp CAPS         &kp INS         &kp F11          &kp F12             &trans  &trans  &trans  &trans  &trans  &trans                          &kp KP_N0     &kp KP_N0    &kp KP_DOT     &kp KP_ENTER           &trans
             >;
         };
+
+        layer_Hun {
+            bindings = <
+               &trans         &trans          &trans          &trans           &trans                                                                          &trans                &trans             &trans             &trans          &trans
+               &trans         &trans          &trans          &trans           &trans  &trans                                                     &trans       &trans                &trans             &trans             &trans          &trans
+               &trans         &trans          &trans          &kp HU_E_ACUTE   &trans  &trans                                                     &trans       &kp HU_U_ACUTE        &kp HU_I_ACUTE     &kp HU_O_ACUTE     &trans          &trans
+               &trans         &kp HU_A_ACUTE  &trans          &trans           &trans  &trans                                                     &trans       &kp HU_U_UMLAUT       &trans             &kp HU_O_UMLAUT    &trans          &trans
+               &trans         &trans          &trans          &trans           &trans  &trans  &trans  &trans   &to 0  &trans  &trans  &trans     &trans       &kp HU_U_DOUBLE_ACUTE &trans             &kp HU_O_DOUBLE_ACUTE &trans          &trans
+               &magic LAYER_Magic 0 &trans    &trans          &trans           &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans    &trans       &trans                &trans             &trans             &trans          &trans
+            >;
+        };
+		
 
         layer_Magic {
             bindings = <
